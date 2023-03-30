@@ -37,15 +37,6 @@ abstract class BaseUser extends \core\base\controller\BaseController
 
 	protected $info;
 
-	protected $section1;
-	protected $section2;
-	protected $section3;
-	protected $section4;
-	protected $section5;
-	protected $section6;
-	protected $section7;
-
-
 
 	protected function inputData()
 	{
@@ -66,55 +57,16 @@ abstract class BaseUser extends \core\base\controller\BaseController
 		// который пришёл (первый по очереди, т.е. будет забираться только одна каждая следующая созданная запись)
 		$this->set && $this->set = $this->set[0];
 
-		$this->info = $this->model->get('information', [
+
+		/* $this->info = $this->model->get('information', [
 			'order' => ['id'],
 			'limit' => 1
 		]);
-		$this->info && $this->info = $this->info[0];
+		$this->info && $this->info = $this->info[0]; */
 
 		//-------------------------------------------------------------------------------------------------------------//
 
-		$this->section1 = $this->model->get('section1', [
-			'order' => ['id'],
-			'limit' => 1
-		]);
-		$this->section1 && $this->section1 = $this->section1[0];
 
-		$this->section2 = $this->model->get('section2', [
-			'order' => ['id'],
-			'limit' => 1
-		]);
-		$this->section2 && $this->section2 = $this->section2[0];
-
-		$this->section3 = $this->model->get('section3', [
-			'order' => ['id'],
-			'limit' => 1
-		]);
-		$this->section3 && $this->section3 = $this->section3[0];
-
-		$this->section4 = $this->model->get('section4', [
-			'order' => ['id'],
-			'limit' => 1
-		]);
-		$this->section4 && $this->section4 = $this->section4[0];
-
-		$this->section5 = $this->model->get('section5', [
-			'order' => ['id'],
-			'limit' => 1
-		]);
-		$this->section5 && $this->section5 = $this->section5[0];
-
-		$this->section6 = $this->model->get('section6', [
-			'order' => ['id'],
-			'limit' => 1
-		]);
-		$this->section6 && $this->section6 = $this->section6[0];
-
-		$this->section7 = $this->model->get('section7', [
-			'order' => ['id'],
-			'limit' => 1
-		]);
-		$this->section7 && $this->section7 = $this->section7[0];
 
 		// получим в св-во: $this->menu, в ячейку: ['information'], то что хранится в соответствующей таблице БД
 		/* $this->menu['information'] = $this->model->get('information', [
@@ -123,12 +75,13 @@ abstract class BaseUser extends \core\base\controller\BaseController
 		]); */
 
 		// получим в св-во: $this->socials, то что хранится в соответствующей таблице БД
-		$this->socials = $this->model->get('socials', [
+		/* $this->socials = $this->model->get('socials', [
 			'where' => ['visible' => 1],
 			'order' => ['menu_position']
-		]);
+		]); */
 	}
 
+	// Выпуск №120
 	protected function outputData()
 	{
 		// +Выпуск №129
@@ -273,63 +226,5 @@ abstract class BaseUser extends \core\base\controller\BaseController
 
 		// ищем слеш повторяющийся 2-а и более раз и меняем на единичный слеш, и выводить это будем в готовом пути
 		return preg_replace('/\/{2,}/', '/', PATH . $alias . END_SLASH . $str);
-	}
-
-	/** 
-	 * Метод, для автоматической подстановки слов рядом с цифрой (кол-во лет на рынке) Выпуск №124
-	 */
-	protected function wordsForCounter($counter, $arrElement = 'years')
-	{
-		$arr = [
-			'years' => [
-				'лет',
-				'год',
-				'года'
-			]
-		];
-
-		if (is_array($arrElement)) {
-
-			$arr = $arrElement;
-		} else {
-
-			// в переменную положим то что лежит в ячейке: $arr[$arrElement] (если что то в неё пришло) или возьмём 1-ый 
-			// элемент массива (при этом он удаляется из массива и все ключи массива будут изменены, чтобы начать отсчет с нуля)
-			$arr = $arr[$arrElement] ?? array_shift($arr);
-		}
-
-		if (!$arr)
-
-			return null;
-
-		// сохраним в переменную: приведённый к целому числу, обрезанный из содержимого переменной: $counter последний символ
-		$char = (int)substr($counter, -1);
-
-		// аналогично для переменной: $counter (но обрезаем с конца два символа)
-		$counter = (int)substr($counter, -2);
-
-		if (($counter >= 10 && $counter <= 20) || ($char >= 5 && $char <= 9) || !$char) {
-
-			// вернём то что лежит в ячейке: $arr[0] (если там что то есть) или null
-			return $arr[0] ?? null;
-		} elseif ($char === 1) {
-
-			return $arr[1] ?? null;
-		} else {
-
-			return $arr[2] ?? null;
-		}
-	}
-
-	/** 
-	 * Метод установки данных пользователя в форму (Выпуск №145)
-	 * 
-	 * на вход: 1- ключ который ищем; 2- св-во в котором ищем; 3- массив (если это не сессия)
-	 */
-	protected function setFormValues($key, $property = null, $arr = [])
-	{
-		!$arr && $arr = $_SESSION['res'] ?? [];
-
-		return $arr[$key] ?? ($this->$property[$key] ?? '');
 	}
 }

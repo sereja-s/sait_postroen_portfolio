@@ -81,16 +81,6 @@ class Settings
 	private $projectTables = [
 
 		'settings' => ['name' => 'Настройки (о сайте)'],
-		'information' => ['name' => 'Информация'],
-		'section1' => ['name' => 'секция1'],
-		'section2' => ['name' => 'секция2'],
-		'section3' => ['name' => 'секция3'],
-		'section4' => ['name' => 'секция4'],
-		'section5' => ['name' => 'секция5'],
-		'section6' => ['name' => 'секция6'],
-		'section7' => ['name' => 'секция7'],
-		'comments' => ['name' => 'Отзывы'],
-		'socials' => ['name' => 'Соц.сети'],
 		'users' => ['name' => 'Пользователи'],
 	];
 
@@ -98,13 +88,13 @@ class Settings
 	private $templateArr = [
 
 		// массив вида: 'название шаблона' => массив с полями для которых должен быть подключен соответствующий шаблон
-		'text' => ['name', 'name_comment', 'phone', 'email', 'alias', 'section_id', 'external_alias', 'sub_title', 'number_of_years', 'discount', 'price', 'login', 'password'],
-		'textarea' => ['content', 'keywords', 'address', 'address_big', 'description', 'short_content'],
+		'text' => ['name', 'name_comment', 'phone', 'email', 'alias', 'section_id', 'external_alias', 'sub_title', 'number_of_years', 'discount', 'price', 'login', 'password', 'map_coordinates'],
+		'textarea' => ['content', 'keywords', 'address', 'map_address', 'address_big', 'description', 'short_content'],
 		'radio' => ['visible', 'show_top_menu', 'hit', 'sale', 'new', 'hot'],
 		'checkboxlist' => ['filters', 'filters_test'], // указали, что хотим подключить фильтры к связанной таблице: 
 		// товары (они прописаны в массиве: в свойстве: private $manyToMany)
 		'select' => ['menu_position', 'parent_id'],
-		'img' => ['img', 'img_comments', 'main_img', 'img_horizontal', 'img_vertical1', 'img_vertical2', 'bg_img', 'promo_img'],
+		'img' => ['img_logo', 'img_horizontal', 'img_footer', 'map_img', 'bg_img'],
 		'gallery_img' => ['gallery_img', 'new_gallery_img']
 	];
 
@@ -126,20 +116,17 @@ class Settings
 		'alias' => ['Ссылка ЧПУ'],
 		'section_id' => ['Идетификатор'],
 		'external_alias' => ['Внешняя ссылка'],
-		'img' => ['Изображение', '(Одно)'],
-		'img_comments' => ['Логотип над отзывами'],
+		'img_logo' => ['Изображение', '(логотип)'],
 		'img_horizontal' => ['Изображение горизонтальное', '(Одно)'],
-		'img_vertical1' => ['Изображение вертикальное_1', '(Одно)'],
-		'img_vertical2' => ['Изображение вертикальное_2', '(Одно)'],
-		'bg_img' => ['Изображение-фон', '(Одно)'],
+		'img_footer' => ['Изображение внизу', '(для больших экранов)'],
+		'map_img' => ['логотип', '(на карте)'],
+		'bg_img' => ['Изображение-фон', '(слайд)'],
 		'gallery_img' => ['галерея изображений', '(Несколько)'],
 		'visible' => ['Видимость', '(Показывать?)'],
 		'menu_position' => ['Позиция в списке', '(Расположение в меню)'],
 		'show_top_menu' => ['Показывать в верхнем меню'],
 		'sub_title' => ['Подзаголовок'],
 		'short_content' => ['Краткое описание'],
-		'img_years' => ['Изображение количества лет на рынке'],
-		'number_of_years' => ['Количество лет'],
 		'hit' => ['Хит продаж'],
 		'sale' => ['Акция'],
 		'new' => ['Новинка'],
@@ -149,7 +136,9 @@ class Settings
 		'parent_id' => ['Выбрать категорию', '(К чему относится?)'],
 		'promo_img' => ['Изображение для главной страницы'],
 		'login' => ['Логин'],
-		'password' => ['Пароль']
+		'password' => ['Пароль', '(зашифрован md5)'],
+		'map_coordinates' => ['координаты карты', '(пример: 47.991522, 37.798313)'],
+		'map_address' => ['адрес на карте'],
 		//'filters' => ['Категории фильтров']
 	];
 
@@ -163,7 +152,7 @@ class Settings
 	// св-во, в котором будет храниться информация о корневых таблицах
 	private $rootItems = [
 		'name' => 'Корневая',
-		'tables' => ['catalog', 'filters', 'teachers']
+		'tables' => ['catalog', 'filters']
 	];
 
 	// свойство для автоматизации связей многие ко многим
@@ -178,7 +167,7 @@ class Settings
 	// (по умолчанию содержимое разделов адмики занимает левый блок: vg-rows) 
 	private $blockNeedle = [
 		'vg-rows' => [],
-		'vg-img' => ['img', 'img_comments', 'main_img', 'gallery_img', 'img_horizontal', 'bg_img', 'promo_img'],
+		'vg-img' => ['img_logo', 'img_footer', 'map_img', 'gallery_img', 'img_horizontal', 'bg_img'],
 		'vg-content' => ['content']
 	];
 

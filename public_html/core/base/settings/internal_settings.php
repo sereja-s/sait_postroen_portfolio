@@ -52,22 +52,22 @@ const ADMIN_CSS_JS = [
 		'js/frameworkfunctions.js',
 		'js/scripts.js',
 		'js/tinymce/tinymce.min.js',
-		'js/tinymce/tinymce_init.js'
+		'js/tinymce/tinymce_init.js',
 	]
 ];
 
 
-//  константа для хранения путей css- и js-файлов пользовательской части сайта
+//  константа для хранения путей css- и js-файлов пользовательской части сайта (выпуск №119)
 const USER_CSS_JS = [
 	'styles' => [
-		'assets/css/style.css',
-		'assets/css/owl.carousel.min.css',
-		'assets/css/owl.theme.default.min.css'
+		'https://fonts.googleapis.com/css?family=Montserrat:900%7CRoboto:300&display=swap&subset=cyrillic',
+		'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css',
+		'assets/css/main.css',
 	],
 	'scripts' => [
-		'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js',
-		'assets/js/script.js',
-		'assets/js/OwlCarousel2-2.3.4/dist/owl.carousel.min.js'
+		'https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js',
+		'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js',
+		'assets/js/main.js',
 	]
 ];
 

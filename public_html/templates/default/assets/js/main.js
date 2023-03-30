@@ -284,9 +284,9 @@
 					balloonContent: address
 				}, {
 					iconLayout: 'default#image',
-					iconImageHref: pathForJS.siteUrl + '../assets/img/common/logotextSitePostroen.png',
-					iconImageSize: [100, 70],
-					iconImageOffset: [-55, 155]
+					iconImageHref: ForJS.siteUrl + '/assets/img/common/' + ForJS.imgMap,
+					iconImageSize: [145, 100],
+					iconImageOffset: [-70, 125]
 				});
 
 			myMap.geoObjects.add(myPlacemark);

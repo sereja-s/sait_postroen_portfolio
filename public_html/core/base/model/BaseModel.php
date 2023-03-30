@@ -196,7 +196,7 @@ abstract class BaseModel extends BaseModelMethods
 		$limit = (!empty($set['limit'])) ? 'LIMIT ' . $set['limit'] : '';
 
 		// (+Выпуск №135)
-		$this->createPagination($set, $table, $paginationWhere, $limit);
+		//$this->createPagination($set, $table, $paginationWhere, $limit);
 
 
 		// формируем запрос в переменной $query: Выбрать поля $fields из переменной $table, далее указываем переменные, 
@@ -226,32 +226,7 @@ abstract class BaseModel extends BaseModelMethods
 	}
 
 
-	// Выпуск №135 | Пользовательская часть постраничная навигация | часть 1
-	protected function createPagination($set, $table, $where, &$limit)
-	{
-		if (!empty($set['pagination'])) {
 
-			// количество элементов для показа
-			$this->postNumber = isset($set['pagination']['qty']) ? (int)$set['pagination']['qty'] : QTY;
-
-			// количество ссылок
-			$this->linksNumber = isset($set['pagination']['qty_links']) ? (int)$set['pagination']['qty_links'] : QTY_LINKS;
-
-			// текущая страница
-			$this->page = !is_array($set['pagination']) ? (int)$set['pagination'] : (int)($set['pagination']['page'] ?? 1);
-
-			if ($this->page > 0 && $this->postNumber > 0) {
-
-				// количество записей
-				$this->totalCount = $this->getTotalCount($table, $where);
-
-				// количество страниц
-				$this->numberPages = (int)ceil($this->totalCount / $this->postNumber);
-
-				$limit = 'LIMIT ' . ($this->page - 1) * $this->postNumber . ',' . $this->postNumber;
-			}
-		}
-	}
 
 	/**
 	 * @param $table - таблица для вставки данных

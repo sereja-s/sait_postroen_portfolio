@@ -12,13 +12,12 @@ class IndexController extends BaseUser
 		// Выпуск №120
 		parent::inputData();
 
-		$comments = $this->model->get('comments', [
+			/* $comments = $this->model->get('comments', [
 
 			'order_direction' => ['DESC'],
 			'limit' => 5
 		]);
-
-		return compact('comments');
+		return compact('comments'); */
 
 			//=============================================================================================================//
 
