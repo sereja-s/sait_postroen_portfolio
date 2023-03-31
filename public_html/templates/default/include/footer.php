@@ -17,7 +17,20 @@
 				<button class="btn-close popup__btn-close popup-close"></button>
 				<nav class="mobile-menu popup__mobile-menu">
 					<ul class="mobile-menu__ul">
-						<li class="mobile-menu__li">
+
+						<?php if (!empty($this->menu['information'])) : ?>
+
+							<?php foreach ($this->menu['information'] as $item) : ?>
+
+								<li class="mobile-menu__li">
+									<a class="mobile-menu__link popup-close" href="#" data-scroll-to="<?= $item['section_name'] ?>"><?= $item['name'] ?></a>
+								</li>
+
+							<?php endforeach; ?>
+
+						<?php endif; ?>
+
+						<!-- <li class="mobile-menu__li">
 							<a class="mobile-menu__link popup-close" href="#" data-scroll-to="section-catalog">Портфолио</a>
 						</li>
 						<li class="mobile-menu__li">
@@ -25,7 +38,7 @@
 						</li>
 						<li class="mobile-menu__li">
 							<a class="mobile-menu__link popup-close" href="#" data-scroll-to="section-contacts">Контакты</a>
-						</li>
+						</li> -->
 					</ul>
 				</nav>
 				<div class="phone popup__phone">

@@ -1242,10 +1242,11 @@ img {
 
 .section-top__container {
 	position: relative;
-	width: 670px;
+	max-width: 670px;
 	margin: 0;
 	background-color: rgba(0, 0, 0, 0.3);
-	border-radius: 60px;
+	border-radius: 15px;
+	padding: 0px 5px;
 }
 
 .section-top__info {

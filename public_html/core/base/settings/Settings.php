@@ -81,6 +81,9 @@ class Settings
 	private $projectTables = [
 
 		'settings' => ['name' => 'Настройки (о сайте)'],
+		'information' => ['name' => 'Пункты меню'],
+		'sections' => ['name' => 'Указатель на раздел'],
+		'site_categories' => ['name' => 'Виды сайтов'],
 		'users' => ['name' => 'Пользователи'],
 	];
 
@@ -88,7 +91,7 @@ class Settings
 	private $templateArr = [
 
 		// массив вида: 'название шаблона' => массив с полями для которых должен быть подключен соответствующий шаблон
-		'text' => ['name', 'name_comment', 'phone', 'email', 'alias', 'section_id', 'external_alias', 'sub_title', 'number_of_years', 'discount', 'price', 'login', 'password', 'map_coordinates'],
+		'text' => ['name', 'name_comment', 'phone', 'email', 'alias', 'section_id', 'external_alias', 'sub_title', 'number_of_years', 'discount', 'price', 'login', 'password', 'map_coordinates', 'scroll_to'],
 		'textarea' => ['content', 'keywords', 'address', 'map_address', 'address_big', 'description', 'short_content'],
 		'radio' => ['visible', 'show_top_menu', 'hit', 'sale', 'new', 'hot'],
 		'checkboxlist' => ['filters', 'filters_test'], // указали, что хотим подключить фильтры к связанной таблице: 
@@ -139,6 +142,7 @@ class Settings
 		'password' => ['Пароль', '(зашифрован md5)'],
 		'map_coordinates' => ['координаты карты', '(пример: 47.991522, 37.798313)'],
 		'map_address' => ['адрес на карте'],
+		'scroll_to' => ['указатель на раздел'],
 		//'filters' => ['Категории фильтров']
 	];
 
@@ -149,10 +153,10 @@ class Settings
 		'show_top_menu' => ['НЕТ', 'ДА', 'default' => 'ДА'],
 	];
 
-	// св-во, в котором будет храниться информация о корневых таблицах
+	// св-во, в котором будет храниться информация о корневых таблицах (Выпуск №40 метод получения данных из связанных таблиц)
 	private $rootItems = [
 		'name' => 'Корневая',
-		'tables' => ['catalog', 'filters']
+		'tables' => ['site_categories', 'filters']
 	];
 
 	// свойство для автоматизации связей многие ко многим

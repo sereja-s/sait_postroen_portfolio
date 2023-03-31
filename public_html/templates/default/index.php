@@ -5,7 +5,7 @@
 	<div class="swiper-wrapper">
 		<!-- Slides -->
 		<div class="section-top lazy swiper-slide" style='background: url("img/section-top/дизайн сайтов-min.png") center center/cover no-repeat fixed;'>
-			<div class="container section-top__container">
+			<div class="section-top__container">
 				<p class="section-top__info">Cоздание сайта в Донецке</p>
 				<h1 class="section-top__title">Мы создадим ваш сайт и разместим в интернете</h1>
 				<!-- <div class="section-top__btn">
@@ -14,19 +14,19 @@
 			</div>
 		</div>
 		<div class="section-top lazy swiper-slide" style='background: url("img/section-top/заказать сайт в Дoнецке-min.jpg") center center/cover no-repeat fixed;'>
-			<div class="container section-top__container">
+			<div class="section-top__container">
 				<p class="section-top__info">Обслуживание и продвижение сайта</p>
 				<h1 class="section-top__title">Мы позаботимся о вашем сайте</h1>
 			</div>
 		</div>
 		<div class="section-top lazy swiper-slide" style='background: url("img/section-top/адаптивный сайт.jpg") center center/cover no-repeat fixed;'>
-			<div class="container section-top__container">
+			<div class="section-top__container">
 				<p class="section-top__info">Ваш сайт будет прекрасно смотреться на всех экранах</p>
 				<h1 class="section-top__title">Вы будете довольны результатом !</h1>
 			</div>
 		</div>
 		<div class="section-top lazy swiper-slide" style='background: url("img/section-top/дизайн визиток-min.jpg") center top/cover no-repeat fixed;'>
-			<div class="container section-top__container">
+			<div class="section-top__container">
 				<p class="section-top__info">Дополнительная услуга</p>
 				<h1 class="section-top__title">Создание визиток</h1>
 			</div>
@@ -49,21 +49,31 @@
 <section class="section section-catalog">
 	<div class="container">
 		<header class="section__header">
-			<h2 class="page-title page-title--accent">Портфолио</h2>
+			<h2 class="page-title page-title--accent"><?= $this->menu['information'][0]['name'] ?></h2>
 			<nav class="catalog-nav">
 				<ul class="catalog-nav__wrapper">
 					<li class="catalog-nav__item">
 						<button class="catalog-nav__btn is-active" type="button" data-filter="all">все</button>
 					</li>
-					<li class="catalog-nav__item">
-						<button class="catalog-nav__btn" type="button" data-filter="site">сайты</button>
-					</li>
-					<li class="catalog-nav__item">
+
+					<?php if (!empty($this->menu['site_categories'])) : ?>
+
+						<?php foreach ($this->menu['site_categories'] as $item) : ?>
+
+							<li class="catalog-nav__item">
+								<button class="catalog-nav__btn" type="button" data-filter="<?= $item['alias'] ?>"><?= $item['name'] ?></button>
+							</li>
+
+						<?php endforeach; ?>
+
+					<?php endif; ?>
+
+					<!-- <li class="catalog-nav__item">
 						<button class="catalog-nav__btn" type="button" data-filter="wp">на WordPress</button>
 					</li>
 					<li class="catalog-nav__item">
 						<button class="catalog-nav__btn" type="button" data-filter="internet-shop">Интернет-магазин</button>
-					</li>
+					</li> -->
 				</ul>
 			</nav>
 		</header>

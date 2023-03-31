@@ -37,6 +37,8 @@ abstract class BaseUser extends \core\base\controller\BaseController
 
 	protected $info;
 
+	protected $sections;
+
 
 	protected function inputData()
 	{
@@ -57,22 +59,27 @@ abstract class BaseUser extends \core\base\controller\BaseController
 		// который пришёл (первый по очереди, т.е. будет забираться только одна каждая следующая созданная запись)
 		$this->set && $this->set = $this->set[0];
 
-
-		/* $this->info = $this->model->get('information', [
-			'order' => ['id'],
-			'limit' => 1
-		]);
-		$this->info && $this->info = $this->info[0]; */
-
 		//-------------------------------------------------------------------------------------------------------------//
 
-
-
-		// получим в св-во: $this->menu, в ячейку: ['information'], то что хранится в соответствующей таблице БД
-		/* $this->menu['information'] = $this->model->get('information', [
-			'where' => ['visible' => 1, 'show_top_menu' => 1],
+		// получим в св-во: $this->menu, в ячейку: ['site_categories'], то что хранится в соответствующей таблице БД
+		$this->menu['site_categories'] = $this->model->get('site_categories', [
+			'where' => ['visible' => 1, 'parent_id' => null],
 			'order' => ['menu_position']
-		]); */
+		]);
+
+			/* $this->sections = $this->model->get('sections', [
+			'order' => ['id'],
+		]) */;
+
+		$this->menu['information'] = $this->model->get('information', [
+			'where' => ['visible' => 1, 'show_top_menu' => 1,],
+			'join' => [
+				'sections' => [
+					'fields' => ['name as section_name'],
+					'on' => ['parent_id', 'id']
+				]
+			]
+		]);
 
 		// получим в св-во: $this->socials, то что хранится в соответствующей таблице БД
 		/* $this->socials = $this->model->get('socials', [

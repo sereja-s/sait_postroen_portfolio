@@ -49,21 +49,21 @@
 			<div class="header-page__end">
 				<nav class="header-page__nav">
 					<ul class="header-page__ul">
-						<li class="header-page__li">
-							<a class="header-page__link" href="#" data-scroll-to="section-catalog">
-								<span class="header-page__text">Портфолио</span>
-							</a>
-						</li>
-						<li class="header-page__li">
-							<a class="header-page__link" href="#" data-scroll-to="section-about">
-								<span class="header-page__text">о нас</span>
-							</a>
-						</li>
-						<li class="header-page__li">
-							<a class="header-page__link" href="#" data-scroll-to="section-contacts">
-								<span class="header-page__text">контакты</span>
-							</a>
-						</li>
+
+						<?php if (!empty($this->menu['information'])) : ?>
+
+							<?php foreach ($this->menu['information'] as $item) : ?>
+
+								<li class="header-page__li">
+									<a class="header-page__link" href="#" data-scroll-to="<?= $item['section_name'] ?>">
+										<span class="header-page__text"><?= $item['name'] ?></span>
+									</a>
+								</li>
+
+							<?php endforeach; ?>
+
+						<?php endif; ?>
+
 					</ul>
 				</nav>
 				<div class="phone">
