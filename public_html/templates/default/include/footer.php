@@ -3,7 +3,7 @@
 <!-- footer-page -->
 <footer class="footer-page">
 	<div class="container">
-		<div class="footer-page__text">SaitPostroen 2023</div>
+		<div class="footer-page__text">SaitPostroen <?= $this->set['year'] ?></div>
 	</div>
 </footer>
 <!-- /.footer-page -->
@@ -30,15 +30,6 @@
 
 						<?php endif; ?>
 
-						<!-- <li class="mobile-menu__li">
-							<a class="mobile-menu__link popup-close" href="#" data-scroll-to="section-catalog">Портфолио</a>
-						</li>
-						<li class="mobile-menu__li">
-							<a class="mobile-menu__link popup-close" href="#" data-scroll-to="section-about">О нас</a>
-						</li>
-						<li class="mobile-menu__li">
-							<a class="mobile-menu__link popup-close" href="#" data-scroll-to="section-contacts">Контакты</a>
-						</li> -->
 					</ul>
 				</nav>
 				<div class="phone popup__phone">
