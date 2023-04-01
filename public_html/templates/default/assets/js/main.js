@@ -284,7 +284,7 @@
 					balloonContent: address
 				}, {
 					iconLayout: 'default#image',
-					iconImageHref: ForJS.siteUrl + '/assets/img/common/' + ForJS.imgMap,
+					iconImageHref: /* ForJS.siteUrl + '/assets/img/common/' +  */ForJS.imgMap,
 					iconImageSize: [145, 100],
 					iconImageOffset: [-70, 125]
 				});

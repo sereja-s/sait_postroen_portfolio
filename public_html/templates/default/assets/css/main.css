@@ -903,8 +903,8 @@ img {
 	transition: fill .2s, opacity .2s;
 }
 
-.socials__icon--vk:hover {
-	fill: #0373f3;
+/* .socials__icon--vk:hover {
+	fill: #bfee14;
 }
 
 .socials__icon--fb:hover {
@@ -921,7 +921,7 @@ img {
 
 .socials__logo {
 	fill: #fff;
-}
+} */
 
 @media (max-width: 767px) {
 	.socials__item {

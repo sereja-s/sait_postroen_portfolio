@@ -21,7 +21,7 @@
 	<meta name="msapplication-TileColor" content="#ffbc42">
 	<meta name="theme-color" content="#ffbc42">
 
-	<title>САЙТ ПОСТРОЕН в Донецке</title>
+	<title><?= $this->set['name'] ?></title>
 
 	<?php $this->getStyles() ?>
 
@@ -30,8 +30,8 @@
 		var ForJS = {};
 		/* укажем для описания полного пути к маркеру(картинки-лого) на карте */
 		/* Остальное описано в main.js  */
-		ForJS.siteUrl = '<?= TEMPLATE ?>';
-		ForJS.imgMap = '<?= 'logotextSitePostroen.png' ?>';
+		/* ForJS.siteUrl = ''; */
+		ForJS.imgMap = '<?= $this->img($this->set['map_img']) ?>';
 	</script>
 
 </head>

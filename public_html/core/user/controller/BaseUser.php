@@ -35,10 +35,8 @@ abstract class BaseUser extends \core\base\controller\BaseController
 	 */
 	protected $socials;
 
-	protected $info;
-
-	protected $sections;
-
+	protected $site_categories;
+	protected $websites;
 
 	protected function inputData()
 	{
@@ -61,16 +59,24 @@ abstract class BaseUser extends \core\base\controller\BaseController
 
 		//-------------------------------------------------------------------------------------------------------------//
 
-		// получим в св-во: $this->menu, в ячейку: ['site_categories'], то что хранится в соответствующей таблице БД
-		$this->menu['site_categories'] = $this->model->get('site_categories', [
+		// получим в св-во: $this->site_categories, то что хранится в соответствующей таблице БД
+		$this->site_categories = $this->model->get('site_categories', [
 			'where' => ['visible' => 1, 'parent_id' => null],
 			'order' => ['menu_position']
 		]);
 
-			/* $this->sections = $this->model->get('sections', [
-			'order' => ['id'],
-		]) */;
+		$this->websites = $this->model->get('websites', [
+			'where' => ['visible' => 1],
+			'join' => [
+				'site_categories' => [
+					'fields' => ['alias as alias_categories_name'],
+					'on' => ['parent_id', 'id']
+				]
+			]
+		]);
 
+		// к пунктам меню присоединили таблицу с названиями секций (они будут выводиться в выпадающем списке в админке) к 
+		// которым происходит переход при нажатии на них
 		$this->menu['information'] = $this->model->get('information', [
 			'where' => ['visible' => 1, 'show_top_menu' => 1,],
 			'join' => [
@@ -82,10 +88,10 @@ abstract class BaseUser extends \core\base\controller\BaseController
 		]);
 
 		// получим в св-во: $this->socials, то что хранится в соответствующей таблице БД
-		/* $this->socials = $this->model->get('socials', [
+		$this->socials = $this->model->get('socials', [
 			'where' => ['visible' => 1],
 			'order' => ['menu_position']
-		]); */
+		]);
 	}
 
 	// Выпуск №120

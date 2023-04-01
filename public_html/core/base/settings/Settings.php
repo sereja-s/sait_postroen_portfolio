@@ -81,9 +81,12 @@ class Settings
 	private $projectTables = [
 
 		'settings' => ['name' => 'Настройки (о сайте)'],
+		'section_top' => ['name' => 'Слайды'],
 		'information' => ['name' => 'Пункты меню'],
 		'sections' => ['name' => 'Указатель на раздел'],
+		'websites' => ['name' => 'Сайты'],
 		'site_categories' => ['name' => 'Виды сайтов'],
+		'socials' => ['name' => 'Соц.сети'],
 		'users' => ['name' => 'Пользователи'],
 	];
 
@@ -97,7 +100,7 @@ class Settings
 		'checkboxlist' => ['filters', 'filters_test'], // указали, что хотим подключить фильтры к связанной таблице: 
 		// товары (они прописаны в массиве: в свойстве: private $manyToMany)
 		'select' => ['menu_position', 'parent_id'],
-		'img' => ['img_logo', 'img_horizontal', 'img_footer', 'map_img', 'bg_img'],
+		'img' => ['img', 'img_logo', 'img_horizontal', 'img_footer', 'map_img', 'bg_img'],
 		'gallery_img' => ['gallery_img', 'new_gallery_img']
 	];
 
@@ -119,6 +122,7 @@ class Settings
 		'alias' => ['Ссылка ЧПУ'],
 		'section_id' => ['Идетификатор'],
 		'external_alias' => ['Внешняя ссылка'],
+		'img' => ['Изображение'],
 		'img_logo' => ['Изображение', '(логотип)'],
 		'img_horizontal' => ['Изображение горизонтальное', '(Одно)'],
 		'img_footer' => ['Изображение внизу', '(для больших экранов)'],
@@ -171,7 +175,7 @@ class Settings
 	// (по умолчанию содержимое разделов адмики занимает левый блок: vg-rows) 
 	private $blockNeedle = [
 		'vg-rows' => [],
-		'vg-img' => ['img_logo', 'img_footer', 'map_img', 'gallery_img', 'img_horizontal', 'bg_img'],
+		'vg-img' => ['img', 'img_logo', 'img_footer', 'map_img', 'gallery_img', 'img_horizontal', 'bg_img'],
 		'vg-content' => ['content']
 	];
 
