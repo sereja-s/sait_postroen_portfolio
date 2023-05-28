@@ -2,7 +2,7 @@
 
 defined('VG_ACCESS') or die('Access denied');
 
-const SITE_URL = 'http://sait-postroen-portfolio/';
+const SITE_URL = 'https://saitpostroen.ru/';
 const PATH = '/';
 
 const HOST = 'localhost';

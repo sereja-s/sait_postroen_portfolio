@@ -29,6 +29,18 @@
 
 <!-- /.section-top -->
 
+<div class="header__content">
+
+	<h2 class="header__title">
+		Создание и продвижение сайтов в Донецке</h2>
+	<h3 class="header__subtitle">
+		Заказать сайт в <span>САЙТ ПОСТРОЕН</span> - отличное решение </h3>
+	<p class="header__text">
+		Сделать сайт в <span>САЙТ ПОСТРОЕН</span> означает не только превосходно выполнить поставленную задачу, но и вызвать эмоции радости и восхищения заказчика при виде своего нового сайта на просторах интернета</p>
+
+	<img class="header__images" src="<?= TEMPLATE ?>/assets/img/common/logotextSitePostroen.png" alt="САЙТ ПОСТРОЕН">
+</div>
+
 <!-- section-catalog -->
 <section class="section section-catalog">
 	<div class="container">

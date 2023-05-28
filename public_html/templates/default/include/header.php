@@ -13,6 +13,7 @@
 	<meta property="og:description" content="сайт построен — создание и продвижение сайтов в Донецке" />
 	<meta property="og:image" content="<?= TEMPLATE ?>/assets/img/common/logotextSitePostroen.png" />
 
+	<link rel="icon" href="<?= SITE_URL ?>favicon.ico" type="image/x-icon">
 	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
@@ -25,7 +26,6 @@
 
 	<?php $this->getStyles() ?>
 
-	<!-- #1 Посадка верстки на Wordpress | Установка WP, базовая настройка (14:45) -->
 	<script>
 		var ForJS = {};
 		/* укажем для описания полного пути к маркеру(картинки-лого) на карте */
